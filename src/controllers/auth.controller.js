@@ -1,3 +1,6 @@
+import prisma from '../config/prisma.config.js'
+import createError from '../utils/create-error.util.js'
+
 export function register(req,res,next) {
 	res.json({
 		msg: 'Register controller',
@@ -12,6 +15,9 @@ export const login = (req, res, next) => {
 	})
 }
 
-export const getMe = (req,res,next) => {
-	res.json({msg: 'Get me controller'})
+export const getMe = async (req,res,next) => {
+  let numUser = await prisma.user.count()
+  console.log(numUser)
+  createError(403,"Block!!")
+	res.json({msg: 'Get me controller',numUser})
 }

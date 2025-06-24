@@ -1,7 +1,7 @@
 import express from 'express'
 import authRoute from './routes/auth.route.js'
 import notFoundMiddleware from './middlewares/not-found.middleware.js'
-import errorMiddleware from './middlewares/error.middleware.js'
+import errorMiddleware from './middlewares/error.middlewares.js'
 
 const app = express()
 
